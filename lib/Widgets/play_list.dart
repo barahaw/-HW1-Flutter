@@ -4,54 +4,55 @@ import 'package:hw_1/classes/info.dart';
 class Playlistx extends StatelessWidget {
   Playlistx({super.key});
 
-  final info song1 = info(
-    title: "Blinding Lights",
-    subtitle: "The Weeknd",
-    imgsrc: "assets/images/wek.jpeg",
-    rate: "4.5",
-  );
+  final List<info> songs = [
+    info(
+      title: "Blinding Lights",
+      subtitle: "The Weeknd",
+      imgsrc: "assets/images/wek.jpeg",
+      rate: "4.5",
+    ),
+    info(
+      title: "Wildflowers",
+      subtitle: "Billie Eilish",
+      imgsrc: "assets/images/billie.jpg",
+      rate: "4.7",
+    ),
+    info(
+      title: "birds of a feather",
+      subtitle: "Billie Eilish",
+      imgsrc: "assets/images/billie.jpg",
+      rate: "5.0",
+    ),
+    info(
+      title: "Romantic Homicide",
+      subtitle: "D4vd",
+      imgsrc: "assets/images/Romantic_Homicide.png",
+      rate: "4.6",
+    ),
+    info(
+      title: "وينك يا شمس ",
+      subtitle: "Synaptik",
+      imgsrc: "assets/images/wenek.jpeg",
+      rate: "4.8",
+    ),
+    info(
+      title: "As It Was",
+      subtitle: "Harry Styles",
+      imgsrc: "assets/images/as-it-was.jpg",
+      rate: "4.8",
+    ),
+    info(
+      title: "Save Your Tears",
+      subtitle: "The Weeknd",
+      imgsrc: "assets/images/wek.jpeg",
+      rate: "3.9",
+    ),
+  ];
 
-  final info song2 = info(
-    title: "Wildflowers",
-    subtitle: "Billie Eilish",
-    imgsrc: "assets/images/billie.jpg",
-    rate: "4.7",
-  );
-
-  final info song3 = info(
-    title: "birds of a feather",
-    subtitle: "Billie Eilish",
-    imgsrc: "assets/images/billie.jpg",
-    rate: "5.0",
-  );
-
-  final info song4 = info(
-    title: "Romantic Homicide",
-    subtitle: "D4vd",
-    imgsrc: "assets/images/Romantic_Homicide.png",
-    rate: "4.6",
-  );
-
-  final info song5 = info(
-    title: "وينك يا شمس ",
-    subtitle: "Synaptik",
-    imgsrc: "assets/images/wenek.jpeg",
-    rate: "4.8",
-  );
-
-  final info song6 = info(
-    title: "As It Was",
-    subtitle: "Harry Styles",
-    imgsrc: "assets/images/as-it-was.jpg",
-    rate: "4.8",
-  );
-
-  final info song7 = info(
-    title: "Save Your Tears",
-    subtitle: "The Weeknd",
-    imgsrc: "assets/images/wek.jpeg",
-    rate: "3.9",
-  );
+  TextEditingController titleController = TextEditingController();
+  TextEditingController subtitleController = TextEditingController();
+  TextEditingController imgsrcController = TextEditingController();
+  TextEditingController rateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -114,17 +115,30 @@ class Playlistx extends StatelessWidget {
                     ],
                   ),
                 ),
+
+                // TextField(
+                //   controller: titleController,
+                //   decoration: InputDecoration(label: Text("Title")),
+                // ),
+                // TextField(
+                //   controller: subtitleController,
+                //   decoration: InputDecoration(label: Text("Subtitle")),
+                // ),
+                // TextField(
+                //   controller: imgsrcController,
+                //   decoration: InputDecoration(label: Text("Image Source")),
+                // ),
+                // TextField(
+                //   controller: rateController,
+                //   decoration: InputDecoration(label: Text("Rate")),
+                // ),
+                // SizedBox(height: 10),
                 Expanded(
-                  child: ListView(
-                    children: [
-                      Cards(infocard: song1),
-                      Cards(infocard: song2),
-                      Cards(infocard: song3),
-                      Cards(infocard: song4),
-                      Cards(infocard: song5),
-                      Cards(infocard: song6),
-                      Cards(infocard: song7),
-                    ],
+                  child: ListView.builder(
+                    itemCount: songs.length,
+                    itemBuilder: (context, index) {
+                      return Cards(infocard: songs[index]);
+                    },
                   ),
                 ),
               ],
